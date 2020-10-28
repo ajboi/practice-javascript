@@ -19,12 +19,17 @@ bro(c)
 const bye = (c) => { console.log('I am' + c.age) }
 bye(c)
 
-// 4. Automatically invoked
-const hi = (function () {
+// 4. Just another declaration
+var hi = function (c) {
   console.log('I am ' + c.age)
+}
+
+// 5. Automatically invoked
+var hi = (function () {
+  console.log('I am automatically invoked' + c.age)
 }(c))
 
-// 5. Shorthand method. Works only within objects and classes.
+// 6. Shorthand method. Works only within objects and classes.
 const student =
 {
   name: 'amuthan',
@@ -51,7 +56,7 @@ class Student {
 const Sun = new Student('ajai')
 console.log(Sun.getMessage('podaa'))
 
-// 6. Generator functions
+// 7. Generator functions
 
 /*
  Generators are functions that can be exited and later re-entered. Their context (variable bindings) will be saved across re-entrances.
@@ -84,7 +89,7 @@ console.log(genGen().next())
 be treated as a new instance, and so the yield value will never be incremented. To make generators actually work,
  you need to assign it to a variable and call it. This way, the state will be retained and increment is done properly. */
 
-// 7. New function
+// 8. New function
 
 /* A new function makes use of the Function constructor. The constructor can have numerous arguments.
 If there are n arguments in the Function constructor, arguments 1 to n-1 work as the arguments of the function.
@@ -97,5 +102,6 @@ const sumFunction = new Function(numberA, numberB,
 console.log(sumFunction(10, 15)) // => 25
 
 const name = 'name'; const age = 'age'
+
 const hellal = new Function(name, age, 'return name + " is " + age + " years old"')
 console.log(hellal('ajai', 19))
