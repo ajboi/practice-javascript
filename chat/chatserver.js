@@ -1,20 +1,23 @@
 var net = require('net')
+var messages = [1, 2]
 var server = net.createServer(function (connection) {
   console.log('client connected')
+  connection.write('You are connected')
 
-  connection.on('end', function () {
-    console.log('client disconnected')
+  connection.on('data', function (data) {
+    messages.push(data)
+    connection.write('your message "' + data + '" has been recorded.')
   })
 
-  connection.on('error', function (error) {
-    console.log('client errrorr')
-    console.log(error)
+  connection.on('error', function () {
+    connection.write('some error occured oopsie doopsie')
   })
-
-  connection.write('Hello World!\r\n')
-  connection.pipe(connection)
 })
 
-server.listen(8080, function () {
-  console.log('server is listening')
+server.on('close', function () {
+  console.log('client disconnected')
+})
+
+server.listen(8080, 'localhost', function () {
+  console.log('waiting for connection')
 })

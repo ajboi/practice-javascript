@@ -1,13 +1,21 @@
 var net = require('net')
-var client = net.connect({ port: 8080 }, function () {
-  console.log('connected to server!')
+var client = new net.Socket(); client.setEncoding('utf8')
+// connect to server
+client.connect('8080', 'localhost', function () {
+  console.log('connected to server')
+  client.write('Who needs a browser to communicate?')
 })
-
+// prepare for input from terminal
+process.stdin.resume()
+// when receive data, send to server
+process.stdin.on('data', function (data) {
+  client.write(data)
+})
+// when receive data back, print to console
 client.on('data', function (data) {
-  console.log(data.toString())
-  client.end()
+  console.log(data)
 })
-
-client.on('end', function () {
-  console.log('disconnected from server')
+// when server closed
+client.on('close', function () {
+  console.log('connection is closed')
 })
