@@ -1,0 +1,8 @@
+Events and Event Emitters - https://www.valentinog.com/blog/event/
+Functional Programming - https://www.youtube.com/watch?v=e-5obm1G_FY
+			  https://codewords.recurse.com/issues/one/an-introduction-to-functional-programming
+Buffer object - https://nodejs.org/en/knowledge/advanced/buffers/how-to-use-buffers/#:~:text=What Are Buffers?,methods specifically for binary data
+TypedArrays - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays#:~:text=JavaScript typed arrays are array,binary data in memory buffers.&text=However, typed arrays are not,a typed array returns false 
+Timeouts, SetInterval, nexttick, SetImmediate - https://www.voidcanvas.com/setimmediate-vs-nexttick-vs-settimeout/ (unref and ref in book)
+VM Module - https://odino.org/eval-no-more-understanding-vm-vm2-nodejs/
+

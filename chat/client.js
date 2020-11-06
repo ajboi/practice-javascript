@@ -1,5 +1,6 @@
 var net = require('net')
-var client = new net.Socket(); client.setEncoding('utf8')
+var client = new net.Socket()
+client.setEncoding('utf8')
 // connect to server
 client.connect('8080', 'localhost', function () {
   console.log('connected to server')
